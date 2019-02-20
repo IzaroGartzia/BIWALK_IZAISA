@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */; };
 		028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9E4E220B550A00278683 /* AppDelegate.swift */; };
 		028E9E51220B550A00278683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9E50220B550A00278683 /* ViewController.swift */; };
 		028E9E54220B550A00278683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9E52220B550A00278683 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasHechasViewController.swift; sourceTree = "<group>"; };
+		02142B9C221DE03C00CF6EA0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028E9E4B220B550A00278683 /* BIWALK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BIWALK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028E9E4E220B550A00278683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028E9E50220B550A00278683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +30,6 @@
 		028E9E58220B550C00278683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02D9A526220B75CA00505D63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02D9A528220B763E00505D63 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		02D9A52A220B77F700505D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		02D9A52C220B789C00505D63 /* ModeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeOptionsViewController.swift; sourceTree = "<group>"; };
 		07E32D69B7A1DD6F53A16EA3 /* Pods-BIWALK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BIWALK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK.debug.xcconfig"; sourceTree = "<group>"; };
 		118794089FADE1C246495CB7 /* Pods-BIWALK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BIWALK.release.xcconfig"; path = "Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				028E9E4E220B550A00278683 /* AppDelegate.swift */,
+				02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */,
 				028E9E50220B550A00278683 /* ViewController.swift */,
 				02D9A52C220B789C00505D63 /* ModeOptionsViewController.swift */,
 				02D9A528220B763E00505D63 /* MapViewController.swift */,
@@ -75,7 +78,7 @@
 				028E9E55220B550C00278683 /* Assets.xcassets */,
 				028E9E57220B550C00278683 /* LaunchScreen.storyboard */,
 				02D9A526220B75CA00505D63 /* GoogleService-Info.plist */,
-				02D9A52B220B77F700505D63 /* Info.plist */,
+				02142B9C221DE03C00CF6EA0 /* Info.plist */,
 			);
 			path = BIWALK;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				028E9E51220B550A00278683 /* ViewController.swift in Sources */,
 				02D9A52D220B789C00505D63 /* ModeOptionsViewController.swift in Sources */,
 				028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */,
+				02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */,
 				02D9A529220B763E00505D63 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,14 +281,6 @@
 				028E9E58220B550C00278683 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		02D9A52B220B77F700505D63 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02D9A52A220B77F700505D63 /* Base */,
-			);
-			name = Info.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

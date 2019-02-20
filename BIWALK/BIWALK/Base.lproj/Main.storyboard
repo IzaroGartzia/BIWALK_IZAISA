@@ -26,6 +26,14 @@
                                     <segue destination="iA4-PG-CEX" kind="show" id="bsw-aH-iSE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYk-Me-WNN">
+                                <rect key="frame" x="147" y="315" width="93" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Rutas hechas"/>
+                                <connections>
+                                    <segue destination="kGA-Fv-PRO" kind="show" id="Eia-Ao-Oje"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -70,11 +78,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ONH-LJ-DLn">
-                                <rect key="frame" x="33" y="126" width="308" height="201"/>
+                                <rect key="frame" x="33" y="126" width="308" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tV-HC-y5u">
-                                <rect key="frame" x="142" y="406" width="91" height="30"/>
+                                <rect key="frame" x="223" y="617" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Guardar Ruta"/>
                             </button>
@@ -82,6 +90,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="W1d-T9-jga"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ONH-LJ-DLn" id="dOY-9Z-SGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbX-zi-Oun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,6 +115,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJV-5f-hwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="132.68365817091455"/>
+        </scene>
+        <!--Rutas Hechas View Controller-->
+        <scene sceneID="Sy5-g9-0t9">
+            <objects>
+                <viewController id="kGA-Fv-PRO" customClass="RutasHechasViewController" customModule="BIWALK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yDY-UX-Rre" customClass="RutaHecha">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XhC-gC-Uwu">
+                                <rect key="frame" x="40" y="154" width="294" height="215"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ezO-N0-dSC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7GA-43-aen" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.79999999999995" y="791.15442278860576"/>
         </scene>
     </scenes>
 </document>

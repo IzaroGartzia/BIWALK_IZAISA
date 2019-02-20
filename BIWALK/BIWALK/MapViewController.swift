@@ -8,9 +8,9 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-
-class MapViewController: UIViewController,CLLocationManagerDelegate, {
+class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
     @IBOutlet weak var latitude: UILabel!
     @IBOutlet weak var longitude: UILabel!
@@ -19,37 +19,33 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, {
     @IBOutlet weak var vAccuracy: UILabel!
     @IBOutlet weak var distance: UILabel!
     
-    var locationManager: CLLocationManager = CLLocationManager()
+    @IBOutlet weak var mapView: MKMapView!
+    var locationManager: CLLocationManager!
     var startLocation: CLLocation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager = CLLocationManager()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
         startLocation = nil
-        // Do any additional setup after loading the view.
         
-        startWhenInUse()
-    }
-    
-    func startWhenInUse() {
+        
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        mapView.showsUserLocation = true
+        mapView.delegate = self
+
     }
     
-    @IBAction func startAlways(_ sender: Any) {
-        locationManager.stopUpdatingLocation()
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-    }
     
-    func locationManager(_ manager: CLLocationManager,
-                         didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let latestLocation: CLLocation = locations[locations.count - 1]
-        
+        let latestLocation: CLLocation = locationManager.location!
+
+        mapView.centerCoordinate=latestLocation.coordinate
+
         print(latestLocation.coordinate.latitude)
         print(latestLocation.coordinate.longitude)
         
@@ -57,16 +53,27 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, {
         
         coordenadas.append(latestLocation.coordinate)
         
+        let polyline = MKPolyline(coordinates: coordenadas, count: coordenadas.count)
         
-        if startLocation == nil {
-            startLocation = latestLocation
-        }
+        mapView.addOverlay(polyline)
         
-        let distanceBetween: CLLocationDistance =
-            latestLocation.distance(from: startLocation)
+       
         
         
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        //Return an `MKPolylineRenderer` for the `MKPolyline` in the `MKMapViewDelegate`s method
+        if let polyline = overlay as? MKPolyline {
+            let testlineRenderer = MKPolylineRenderer(polyline: polyline)
+            testlineRenderer.strokeColor = .blue
+            testlineRenderer.lineWidth = 2.0
+            return testlineRenderer
+        }
+        fatalError("Something wrong...")
+        //return MKOverlayRenderer()
+    }
+    
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
         print(error.localizedDescription)
@@ -77,17 +84,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, {
 //    MKMapView?.add(polyline)
 //
 //    
-//    func addAnnotations() {
-//        mapView?.delegate = self
-//        mapView?.addAnnotations(places)
-//        
-//        let overlays = places.map { MKCircle(center: $0.coordinate, radius: 100) }
-//        mapView?.addOverlays(overlays)
-//
-//        var locations = places.map { $0.coordinate }
-//        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
-//        mapView?.add(polyline)
-//    }
+  
 
     /*
     // MARK: - Navigation

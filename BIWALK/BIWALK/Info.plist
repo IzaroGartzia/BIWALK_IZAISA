@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Permiso para obtener la localizacion para usar la aplicacion</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Permiso para obtener la localizacion para usar la aplicacion</string>
 	<key>CFBundleDevelopmentRegion</key>
