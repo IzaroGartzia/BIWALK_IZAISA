@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */; };
+		0254F8012226E68C004D4502 /* RutasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254F8002226E68C004D4502 /* RutasTableViewController.swift */; };
+		0254F8032227073A004D4502 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254F8022227073A004D4502 /* ItemTableViewCell.swift */; };
 		028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9E4E220B550A00278683 /* AppDelegate.swift */; };
 		028E9E51220B550A00278683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9E50220B550A00278683 /* ViewController.swift */; };
 		028E9E54220B550A00278683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028E9E52220B550A00278683 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasHechasViewController.swift; sourceTree = "<group>"; };
 		02142B9C221DE03C00CF6EA0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0254F8002226E68C004D4502 /* RutasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasTableViewController.swift; sourceTree = "<group>"; };
+		0254F8022227073A004D4502 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		028E9E4B220B550A00278683 /* BIWALK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BIWALK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028E9E4E220B550A00278683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028E9E50220B550A00278683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,11 +78,13 @@
 				028E9E50220B550A00278683 /* ViewController.swift */,
 				02D9A52C220B789C00505D63 /* ModeOptionsViewController.swift */,
 				02D9A528220B763E00505D63 /* MapViewController.swift */,
+				0254F8002226E68C004D4502 /* RutasTableViewController.swift */,
 				028E9E52220B550A00278683 /* Main.storyboard */,
 				028E9E55220B550C00278683 /* Assets.xcassets */,
 				028E9E57220B550C00278683 /* LaunchScreen.storyboard */,
 				02D9A526220B75CA00505D63 /* GoogleService-Info.plist */,
 				02142B9C221DE03C00CF6EA0 /* Info.plist */,
+				0254F8022227073A004D4502 /* ItemTableViewCell.swift */,
 			);
 			path = BIWALK;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 				028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */,
 				02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */,
 				02D9A529220B763E00505D63 /* MapViewController.swift in Sources */,
+				0254F8032227073A004D4502 /* ItemTableViewCell.swift in Sources */,
+				0254F8012226E68C004D4502 /* RutasTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

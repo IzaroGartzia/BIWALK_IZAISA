@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
+
 class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
     @IBOutlet weak var latitude: UILabel!
@@ -19,9 +20,26 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     @IBOutlet weak var vAccuracy: UILabel!
     @IBOutlet weak var distance: UILabel!
     
+    @IBOutlet weak var metrosLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
     var startLocation: CLLocation!
+    //Para hacer el cronometro
+    var count = 0
+    var minute = 0
+    var hour = 0
+    var km = 0.0
+    var latitudes =  [Double] ()
+    var longitudes = [Double] ()
+
+ //   var timer = NSTimer()
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +56,57 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         mapView.delegate = self
 
     }
-    
+    func counter() {
+        
+        count += 1
+        if count > 9 {
+            secondLabel.text = "\(count)"
+            if count == 60 {
+                count = 0
+                secondLabel.text = "00"
+                minute += 1
+                if minute > 9 {
+                    minuteLabel.text = "\(minute)"
+                    if minute == 60 {
+                        minute = 0
+                        minuteLabel.text = "00"
+                        hour += 1
+                        if hour > 9 {
+                            hourLabel.text = "\(hour)"
+                        }
+                        else {
+                            hourLabel.text = "0\(hour)"
+                        }
+                    }
+                }
+                else{
+                    minuteLabel.text = "0\(minute)"
+                }
+                
+                
+            }
+        }
+        else {
+            secondLabel.text = "0\(count)"
+        }
+    }
+
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let latestLocation: CLLocation = locationManager.location!
 
-        mapView.centerCoordinate=latestLocation.coordinate
+//        mapView.centerCoordinate=latestLocation.coordinate
 
         print(latestLocation.coordinate.latitude)
         print(latestLocation.coordinate.longitude)
+        
+
+ 
+        latitudes.append(latestLocation.coordinate.latitude)
+        longitudes.append(latestLocation.coordinate.longitude)
+        
+        
         
         var coordenadas = [CLLocationCoordinate2D]()
         
@@ -55,10 +114,34 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         let polyline = MKPolyline(coordinates: coordenadas, count: coordenadas.count)
         
+        // Para hacer zoom en el mapview y que salga justo donde estamos
+        let span:MKCoordinateSpan=MKCoordinateSpan (latitudeDelta: 0.05, longitudeDelta:0.05)
+        
+        let region:MKCoordinateRegion=MKCoordinateRegion (center: latestLocation.coordinate, span: span)
+        
+        
+        
         mapView.addOverlay(polyline)
+        // (ERROR         mapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
         
-       
+        // Comprobar que no sea la primera vez que entre
+        if  latitudes.count >= 2{
+
         
+       let location1 = CLLocation(latitude: latestLocation.coordinate.latitude, longitude: latestLocation.coordinate.longitude)
+        print (location1)
+       let location2 = CLLocation(latitude: latitudes[latitudes.count-2], longitude: longitudes[longitudes.count-2])
+        print (location2)
+        let distanceInMeters = location1.distance(from: location2)
+        print(distanceInMeters)
+        
+        km = (distanceInMeters/1000) + km
+        
+        metrosLabel.text = "Kilometros : \(km.rounded())"
+        
+        }
+
         
     }
     
@@ -79,6 +162,45 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         print(error.localizedDescription)
     }
     
+    
+    @IBAction func startButton(_ sender: UIButton) {
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+            self.count += 1
+            if self.count > 9 {
+                self.secondLabel.text = "\(self.count)"
+                if self.count == 60 {
+                    self.count = 0
+                    self.secondLabel.text = "00"
+                    self.minute += 1
+                    if self.minute > 9 {
+                        self.minuteLabel.text = "\(self.minute)"
+                        if self.minute == 60 {
+                            self.minute = 0
+                            self.minuteLabel.text = "00"
+                            self.hour += 1
+                            if self.hour > 9 {
+                                self.hourLabel.text = "\(self.hour)"
+                            }
+                            else {
+                                self.hourLabel.text = "0\(self.hour)"
+                            }
+                        }
+                    }
+                    else{
+                        self.minuteLabel.text = "0\(self.minute)"
+                    }
+                    
+                    
+                }
+            }
+            else {
+                self.secondLabel.text = "0\(self.count)"
+            }
+        })
+   }
+
+
+}
 //    var locations = places.map { $0.coordinate }
 //    let polyline = MKPolyline(coordinates: &locations, count: locations.count)
 //    MKMapView?.add(polyline)
@@ -96,4 +218,4 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     }
     */
 
-}
+
