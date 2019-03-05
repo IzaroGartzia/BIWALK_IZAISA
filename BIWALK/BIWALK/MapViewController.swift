@@ -138,7 +138,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         km = (distanceInMeters/1000) + km
         
-        metrosLabel.text = "Kilometros : \(km.rounded())"
+        metrosLabel.text = "Recorrido : \(km.rounded())"
         
         }
 
