@@ -7,42 +7,87 @@
 //
 
 import UIKit
+import Firebase
+
 
 class RutasTableViewController: UITableViewController {
     
-    var lista = ["a", "b", "c"]
+    struct Ruta {
+        var nombre: String
+    }
+    var rutas = [Ruta]()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // Acceso con el usuario anónimo de Firebase
+      //  Auth.auth().signInAnonymously() { (user, error) in
+            
+            // UID de usuario asignado por Firebase
+           // let uid = user!.uid
+           // log.debug("Usuario: \(uid)")
+            
+     
+        
+                    
+                
+                    
+                db.collection("rutas").getDocuments() { (querySnapshot, err) in
+                    
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            // Limpiar el array de objetos
+                            self.rutas.removeAll()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+                            for document in querySnapshot!.documents {
+                                // Recuperar los datos de la lista y crear el objeto
+                                let datos = document.data()
+                                let nombre = datos["nombre"] as? String ?? "?"
+                                let ruta = Ruta(nombre : nombre)
+                                self.rutas.append(ruta)
+                            }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+                            self.tableView.reloadData()
+                        }
+                }
+
+        
+        
+            
     }
+        
+    
+        
+        
+
+
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return rutas.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CeldaItemLista", for: indexPath) as! ItemTableViewCell
 
-        // Configure the cell...
+        cell.etiquetaRutas.text = rutas[indexPath.row].nombre
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

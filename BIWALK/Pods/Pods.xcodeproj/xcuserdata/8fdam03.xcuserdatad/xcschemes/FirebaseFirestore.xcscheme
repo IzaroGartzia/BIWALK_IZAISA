@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "96FA4C5134CCF7B36CA7AE12ED055FFF"
+               BlueprintIdentifier = "40F397DE4824ED1F6F307CC4AD8DC914"
+               BuildableName = "FirebaseFirestore.framework"
                BlueprintName = "FirebaseFirestore"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "FirebaseFirestore.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

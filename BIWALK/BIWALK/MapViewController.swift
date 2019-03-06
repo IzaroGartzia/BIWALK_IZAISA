@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
-
+import Firebase
 
 class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
@@ -36,10 +36,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     var latitudes =  [Double] ()
     var longitudes = [Double] ()
 
- //   var timer = NSTimer()
+    @IBOutlet weak var textNombreRuta: UITextField!
+    
+    //var timer = Timer()
     
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         mapView.delegate = self
 
     }
+    
+    
     func counter() {
         
         count += 1
@@ -89,6 +92,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         else {
             secondLabel.text = "0\(count)"
         }
+        
     }
 
     
@@ -161,10 +165,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                          didFailWithError error: Error) {
         print(error.localizedDescription)
     }
+    var contador = true
     
     
     @IBAction func startButton(_ sender: UIButton) {
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: contador, block: { timer in
             self.count += 1
             if self.count > 9 {
                 self.secondLabel.text = "\(self.count)"
@@ -198,6 +203,34 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             }
         })
    }
+    
+    @IBAction func botonGuardar(_ sender: Any) {
+        
+        contador = false
+        // AÑADIR DOCUMENTOS A FIRESTORE
+        var ref: DocumentReference? = nil
+        ref = db.collection("rutas").addDocument(data: [
+            "nombre" : textNombreRuta.text,
+            "latitud": latitudes,
+            "longitud": longitudes,
+            "km": km,
+            "horas": hour,
+            "mins": minute,
+            "seg": count
+        ]) { err in
+            if let err = err {
+                print("Error al añadir el documento: \(err)")
+            } else {
+                print("Documento añadido con el ID: \(ref!.documentID)")
+            }
+        }
+        
+        // PARAR EL CRONOMETRO
+        // self.hourLabel.text = "00"
+        // self.minuteLabel.text = "00"
+        // self.secondLabel.text = "00"
+        
+    }
 
 
 }

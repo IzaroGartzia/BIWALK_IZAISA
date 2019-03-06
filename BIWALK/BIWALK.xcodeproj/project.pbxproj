@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */; };
 		0254F8012226E68C004D4502 /* RutasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254F8002226E68C004D4502 /* RutasTableViewController.swift */; };
 		0254F8032227073A004D4502 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0254F8022227073A004D4502 /* ItemTableViewCell.swift */; };
 		028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028E9E4E220B550A00278683 /* AppDelegate.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasHechasViewController.swift; sourceTree = "<group>"; };
 		02142B9C221DE03C00CF6EA0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0254F8002226E68C004D4502 /* RutasTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutasTableViewController.swift; sourceTree = "<group>"; };
 		0254F8022227073A004D4502 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,17 +72,16 @@
 			isa = PBXGroup;
 			children = (
 				028E9E4E220B550A00278683 /* AppDelegate.swift */,
-				02142B9A221DD7FC00CF6EA0 /* RutasHechasViewController.swift */,
 				028E9E50220B550A00278683 /* ViewController.swift */,
 				02D9A52C220B789C00505D63 /* ModeOptionsViewController.swift */,
 				02D9A528220B763E00505D63 /* MapViewController.swift */,
 				0254F8002226E68C004D4502 /* RutasTableViewController.swift */,
+				0254F8022227073A004D4502 /* ItemTableViewCell.swift */,
 				028E9E52220B550A00278683 /* Main.storyboard */,
 				028E9E55220B550C00278683 /* Assets.xcassets */,
 				028E9E57220B550C00278683 /* LaunchScreen.storyboard */,
 				02D9A526220B75CA00505D63 /* GoogleService-Info.plist */,
 				02142B9C221DE03C00CF6EA0 /* Info.plist */,
-				0254F8022227073A004D4502 /* ItemTableViewCell.swift */,
 			);
 			path = BIWALK;
 			sourceTree = "<group>";
@@ -118,7 +115,6 @@
 				028E9E48220B550A00278683 /* Frameworks */,
 				028E9E49220B550A00278683 /* Resources */,
 				7F1187010A254084C48EC6F0 /* [CP] Embed Pods Frameworks */,
-				B9DF495E8CEFAF0BE93D64DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,8 +203,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-BIWALK/Pods-BIWALK-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -220,7 +216,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -230,29 +226,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9DF495E8CEFAF0BE93D64DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BIWALK/Pods-BIWALK-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BIWALK/Pods-BIWALK-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -265,7 +239,6 @@
 				028E9E51220B550A00278683 /* ViewController.swift in Sources */,
 				02D9A52D220B789C00505D63 /* ModeOptionsViewController.swift in Sources */,
 				028E9E4F220B550A00278683 /* AppDelegate.swift in Sources */,
-				02142B9B221DD7FC00CF6EA0 /* RutasHechasViewController.swift in Sources */,
 				02D9A529220B763E00505D63 /* MapViewController.swift in Sources */,
 				0254F8032227073A004D4502 /* ItemTableViewCell.swift in Sources */,
 				0254F8012226E68C004D4502 /* RutasTableViewController.swift in Sources */,
